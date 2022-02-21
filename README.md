@@ -24,3 +24,5 @@ For example lab1.txt file:
 ```
 go run lab1.go lab1.txt
 ```
+## Revert commit 
+[42950687c5c7720893d4300a4936ef931d0b89b5](https://github.com/nikelyandjelo/Lab1-EquationSolver/commit/42950687c5c7720893d4300a4936ef931d0b89b5)
