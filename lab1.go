@@ -9,6 +9,32 @@ import (
 	"strings"
 )
 func main(){
+	var inputParameters []float64
+ 	var fileName string 
+ 	var result []float64
+
+ 	if len(os.Args) > 1 {
+  fileName = os.Args[1]
+ 	}
+
+ 	if fileName != "" {
+  inputParameters = noInteractive(fileName)
+ 	} else {
+  inputParameters = interactive()
+	}
+
+ 	result = solutionEquation(inputParameters)
+
+ 	fmt.Printf("Уравнение: (%.2f) x^2 + (%.2f) x + (%.2f) = 0\n", 
+ 	inputParameters[0], inputParameters[1], inputParameters[2])
+
+ 	if len(result) == 1 {
+ 	 fmt.Printf("x1 = %f\n", result[0])
+ 	} else if len(result) == 2 {
+  	fmt.Printf("x1 = %f\nx2 = %f\n", result[0], result[1])
+	}
+
+	 fmt.Printf("Имеем %d корня", len(result))
 
 }
 
