@@ -65,5 +65,36 @@ func interactive () []float64{
 	return param
  
  }
+
+ func noInteractive(fileName string) []float64 {
+	var value []float64
+ 
+	file, err := os.ReadFile(fileName) 
+	if err != nil {
+	 fmt.Println("Произошла ошибка, открывая файл", err)
+	 os.Exit(1)
+	}
+ 
+	str :=strings.Fields(string(file))
+ 
+	if len(str) != 3 {
+	 fmt.Fprint(os.Stderr, "Ошибка: недопустимый формат файла, жду 3 агрумента \n")
+	 os.Exit(1)
+	}
+ 
+	for index, values := range str {
+	 params, err := strconv.ParseFloat(values, 64)
+	 if err != nil {
+		fmt.Fprintf(os.Stderr, "Ошибка: %s\n", err)
+		os.Exit(1)
+	 }
+	 if index == 0 && params == 0 {
+		fmt.Print("Ошибка . Не может быть  0\n")
+		os.Exit(1)
+	 }
+	 value = append(value,params)
+	}
+	return value
+ }
  
  
